@@ -8,7 +8,7 @@ from api.utils.responses import responses
 
 app = FastAPI()
 
-connect(db="toogle", username="admin", password="media123", host="mongo", authentication_source="admin")
+connect(db="trudesk", username="trudesk", password="Trudesk1", host="mongo", authentication_source="admin")
 
 app.add_middleware(
     CORSMiddleware,
