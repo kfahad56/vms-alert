@@ -1,20 +1,20 @@
 version: '3.7'
 services: 
-  # app:
-  #   build: 
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   image: 'fastapi'
-  #   volumes:
-  #     - .:/app
-  #   container_name: fastapi
-  #   ports: 
-  #     - 8000:8000
-  #   command: "uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
-  #   networks: 
-  #     - app-network
-  #   depends_on: 
-  #     - mongo
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: 'fastapi'
+    volumes:
+      - .:/app
+    container_name: fastapi
+    ports: 
+      - 8000:8000
+    command: "uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+    networks: 
+      - app-network
+    depends_on: 
+      - mongo
 
   mongo:
     image: mongo:3.6
@@ -22,24 +22,8 @@ services:
     restart: always
     ports:
       - 27017:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: trudesk
-      MONGO_INITDB_ROOT_PASSWORD: Trudesk1
     volumes:
       - ./database:/data/db
-    networks: 
-      - app-network
-  
-  trudesk:
-    image: fahad56/diycam:buildtwo
-    restart: always
-    ports:
-      - 8118:8118
-    environment:
-      NODE_ENV: production
-      TRUDESK_DOCKER: "true"
-      TD_MONGODB_SERVER: mongo
-      TD_MONGODB_DATABASE: trudesk
     networks: 
       - app-network
 
