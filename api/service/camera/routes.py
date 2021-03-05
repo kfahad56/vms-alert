@@ -39,7 +39,7 @@ async def vms_webhook(payload:VMS):
         with open(image_path, "wb") as fh:
             fh.write(base64.b64decode(imageData))
         if all(v is not None for v in [owner_id, group_id, access_token, ticket_type, ticket_priority]):
-            image_url = f'![image](http://3.7.130.28:80/images/{imageName}.jpg)'
+            image_url = f'![image](/images/{imageName}.jpg)'
             url = Config.ticketing_base_url + "tickets/create"
             headers = {
                 'accesstoken': access_token,
