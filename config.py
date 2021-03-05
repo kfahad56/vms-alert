@@ -7,3 +7,5 @@ class Config:
 
     ACCESS_TOKEN_EXPIRE = 36000 # in seconds
     REFRESH_TOKEN_EXPIRE = 36000 # in seconds
+
+    ticketing_base_url = "http://ticketing:8118/api/v1/"
